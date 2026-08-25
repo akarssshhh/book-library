@@ -103,14 +103,6 @@
       "status": "want to read",
       "rating": 3,
       "id": "gVydlinBZlc"
-    },
-    {
-      "title": "hth",
-      "author": "tttttttty",
-      "genre": "technology",
-      "status": "want to read",
-      "rating": 3,
-      "id": "tv_Z-kOklrM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
