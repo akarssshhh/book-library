@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import useBooks from "./hooks/useBooks";
 
@@ -19,9 +19,19 @@ function App() {
   // M3 - EDITING
   const [editingBook, setEditingBook] = useState(null);
 
+  // Reference to the BookForm
+  const formRef = useRef(null);
+
   // START EDITING
   const startEditing = (book) => {
     setEditingBook(book);
+
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
   };
 
   // CANCEL EDITING
@@ -47,15 +57,19 @@ function App() {
           </p>
         )}
 
-        <BookForm
-          key={editingBook?.id || "new"}
-          onAdd={addBook}
-          onUpdate={updateBook}
-          editingBook={editingBook}
-          onCancelEdit={cancelEditing}
-          saving={saving}
-        />
+        {/* Book Form */}
+        <div ref={formRef}>
+          <BookForm
+            key={editingBook?.id || "new"}
+            onAdd={addBook}
+            onUpdate={updateBook}
+            editingBook={editingBook}
+            onCancelEdit={cancelEditing}
+            saving={saving}
+          />
+        </div>
 
+        {/* Book List */}
         {books.length === 0 ? (
           <p className="mt-8">
             No books found.
