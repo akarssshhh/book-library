@@ -29,7 +29,11 @@ function App() {
       reading: 0,
       finished: 0,
       wantToRead: 0,
+      averageRating: 0,
     };
+
+    let totalRating = 0;
+    let ratedBooks = 0;
 
     books.forEach((book) => {
       if (book.status === "reading") {
@@ -39,7 +43,17 @@ function App() {
       } else if (book.status === "want to read") {
         stats.wantToRead++;
       }
+
+      if (book.rating !== undefined && book.rating !== null) {
+        totalRating += Number(book.rating);
+        ratedBooks++;
+      }
     });
+
+    stats.averageRating =
+      ratedBooks > 0
+        ? (totalRating / ratedBooks).toFixed(1)
+        : "0.0";
 
     return stats;
   }, [books]);
@@ -111,6 +125,13 @@ function App() {
             Finished{" "}
             <span className="font-semibold text-slate-100">
               {bookStats.finished}
+            </span>
+          </span>
+
+          <span className="text-slate-400">
+            Avg Rating{" "}
+            <span className="font-semibold text-slate-100">
+              {bookStats.averageRating}
             </span>
           </span>
 
