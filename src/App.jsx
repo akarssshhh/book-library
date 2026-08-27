@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 
 import useBooks from "./hooks/useBooks";
 
@@ -21,6 +21,28 @@ function App() {
 
   // Reference to the BookForm
   const formRef = useRef(null);
+
+  // LIBRARY STATISTICS
+  const bookStats = useMemo(() => {
+    const stats = {
+      total: books.length,
+      reading: 0,
+      finished: 0,
+      wantToRead: 0,
+    };
+
+    books.forEach((book) => {
+      if (book.status === "reading") {
+        stats.reading++;
+      } else if (book.status === "finished") {
+        stats.finished++;
+      } else if (book.status === "want to read") {
+        stats.wantToRead++;
+      }
+    });
+
+    return stats;
+  }, [books]);
 
   // START EDITING
   const startEditing = (book) => {
@@ -56,6 +78,43 @@ function App() {
             {error}
           </p>
         )}
+
+        {/* Library Statistics */}
+        <div className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-lg border border-slate-800 bg-slate-900 px-5 py-3 text-sm">
+
+          <span className="font-semibold text-slate-200">
+            Library:
+          </span>
+
+          <span className="text-slate-400">
+            Total{" "}
+            <span className="font-semibold text-slate-100">
+              {bookStats.total}
+            </span>
+          </span>
+
+          <span className="text-slate-400">
+            Want to Read{" "}
+            <span className="font-semibold text-slate-100">
+              {bookStats.wantToRead}
+            </span>
+          </span>
+
+          <span className="text-slate-400">
+            Reading{" "}
+            <span className="font-semibold text-slate-100">
+              {bookStats.reading}
+            </span>
+          </span>
+
+          <span className="text-slate-400">
+            Finished{" "}
+            <span className="font-semibold text-slate-100">
+              {bookStats.finished}
+            </span>
+          </span>
+
+        </div>
 
         {/* Book Form */}
         <div ref={formRef}>
