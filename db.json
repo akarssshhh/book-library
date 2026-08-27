@@ -119,6 +119,14 @@
       "status": "want to read",
       "rating": 4,
       "id": "S6AreiS4cWM"
+    },
+    {
+      "title": "checking123",
+      "author": "random",
+      "genre": "carsLove",
+      "status": "finished",
+      "rating": 5,
+      "id": "tH8-gyvcpGE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
