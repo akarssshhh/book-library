@@ -127,6 +127,14 @@
       "status": "finished",
       "rating": 4,
       "id": "4MIzLhucFI0"
+    },
+    {
+      "title": "checkmemo",
+      "author": "react",
+      "genre": "Technology",
+      "status": "reading",
+      "rating": 2,
+      "id": "O1gr9ZwIQLU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
