@@ -135,6 +135,14 @@
       "status": "reading",
       "rating": 2,
       "id": "O1gr9ZwIQLU"
+    },
+    {
+      "title": "usememocheck2",
+      "author": "me",
+      "genre": "Self-help",
+      "status": "want to read",
+      "rating": 5,
+      "id": "GSaZBxgfqSc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
