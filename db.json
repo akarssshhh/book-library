@@ -122,11 +122,11 @@
     },
     {
       "title": "checking123",
-      "author": "random",
-      "genre": "carsLove",
+      "author": "demo",
+      "genre": "Technology",
       "status": "finished",
-      "rating": 5,
-      "id": "tH8-gyvcpGE"
+      "rating": 4,
+      "id": "4MIzLhucFI0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
